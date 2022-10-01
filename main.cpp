@@ -3,8 +3,8 @@
 
 int main ()
 {
-    struct stack_info stack = {};
-    struct function_info func_info = {.log_file_name = "stack_dump.txt", .name_stack = "stack", .number_line_stack_name_main = __LINE__ - 1};
+    struct function_info func_info = {.log_file_name = "stack_dump.txt", .name_stack = "stack", .number_line_stack_name_main = __LINE__};
+    struct stack_info stack = {.func_info = func_info};
 
     StackCtor (&stack, 5);
     
@@ -13,10 +13,21 @@ int main ()
     StackPush (&stack, 99.9934);
     StackPush (&stack, -45.78);
     StackPush (&stack, -4);
-    StackPush (&stack, 23);
-    StackPush (&stack, 87);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPush (&stack, -2);
+    StackPop  (&stack);
+    StackPop  (&stack);
 
-    StackDump (&stack, &func_info);
+
+    StackDump (&stack);
+
+    StackDtor (&stack);
 
     return 0;
 }

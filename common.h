@@ -12,8 +12,14 @@
 typedef double Elem_t;
 const Elem_t NULL_SPECIFIER = NAN;
 
-#define FUNCTION_LOCATION(function_info) 
-
-#define ASSERT_OK(stack) if ()
+#define ASSERT_OK(stack)    do                                      \
+                            {                                       \
+                                if (StackError (stack) != 0)        \
+                                {                                   \
+                                    DecoderStackError (stack);      \
+                                    StackDump (stack);              \
+                                    abort();                        \
+                                }                                   \
+                            }  while (0)
 
 #endif // COMMON_H
