@@ -1,12 +1,19 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-typedef double Elem_t;
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
-void StackRealloc (struct Stack* stack1);
+#include "common.h"
+
+#define specifier_elem_t "%f"
+
+typedef double Elem_t;
+const Elem_t NULL_SPECIFIER = NAN;
+
+#define FUNCTION_LOCATION(function_info) 
+
+#define ASSERT_OK(stack) if ()
 
 #endif // COMMON_H
